@@ -1,1 +1,11 @@
+/*CSS Stylesheet*/
 
+:root {
+    --main-bg-color: #90BE6D;
+}
+
+body{
+ background-color: var(--main-bg-color);
+ height: 97vh;
+ width: 100vw;
+}
