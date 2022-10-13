@@ -17,9 +17,16 @@ p, h1, h2, h3, h4 {
 
 
 :root {
-    --main-bg-color: #B8F3FF;
+    --card-border-color: #554971;
+    --main-bg-color: #FCD0A1;
     --dashboard-color: #8AC6D0;
-    --projects-bg-color: #B8F3FF;
+    --projects-bg-color: white;
+    --header-color: #B8F3FF;
+    --shadow-color: #554971;
+    --offsetX: 0px;
+    --offsetY: -5px;
+    --frameX: 27px;
+    --frameY: 31px;
     font-family: louisGeorge;
 }
 
@@ -28,6 +35,7 @@ body{
     background-color: var(--main-bg-color);
     max-width: 100vw;
     max-height: 100vh;
+    overflow: auto;
     display: grid;
     grid-template-columns: .75fr 3fr 1fr;
     grid-template-rows: 1fr 1.75fr 1.75fr;
@@ -46,7 +54,7 @@ nav {
 .dashboardLink {
     display: flex;
     align-content: center;
-    padding: .5rem 0 .5rem 1rem;
+    padding: 1.5rem 0 .5rem 1rem;
 }
 
 .dashboardLink:hover {
@@ -96,15 +104,202 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    padding: 0 0 1rem 3rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 3px -1px var(--shadow-color);
+    row-gap: .75rem;
+    background-color: var(--header-color);
 }
 
-header > div {
+header > :nth-child(1) {
+    display: flex;
+    align-items: center;
 }
 
+header input {
+    flex: 1;
+    border-radius: 6px;
+    background-color: var(--dashboard-color);
+    border: none;
+    padding: .25rem;
+
+}
+
+header > :nth-child(2) {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    padding-right: 5rem;
+    height: 4rem;
+}
+
+header > :nth-child(3) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+header .userName:hover {
+    background-color: var(--card-border-color);
+    color: white;
+    border-radius: 8px;
+}
+
+
+
+
+
+.welcomeMessage {
+    font-size: .7rem;
+    font-weight: bold;
+}
+
+.welcomeUser {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: .4rem;
+}
+
+header > :nth-child(4) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 5rem;
+}
+
+header > :nth-child(2)  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem 0 1rem;
+}
+
+header > :nth-child(4) > button {
+    padding: .5rem 2rem .5rem 2rem;
+    border-radius: 16px;
+    border: none;
+    background-color: var(--dashboard-color);
+}
+
+header > :nth-child(4) > button:hover {
+    background-color: var(--card-border-color);
+    color: white;
+}
+
+.searchButton {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: .5rem .5rem .5rem .5rem;
+}
+.searchButton:hover {
+    background-color: var(--card-border-color);
+    color: white;
+    border-radius: 8px;
+}
+
+.searchButton img {
+    height: 1rem;
+}
+
+.notificationButton {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 0 1.5rem 0 1.5rem;
+    border-radius: 8px;
+}
+
+.avatarHoverBox {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem 0 1rem;
+    border-radius: 8px;
+}
+.avatarHoverBox:hover {
+    background-color: var(--card-border-color);
+}
+
+.notificationButton:hover {
+    background-color: #554971;
+}
+
+.notificationButton img {
+    height: 1rem;
+}
+
+
+.avatarContainerSmall {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatarContainerSmall .avatar {
+    position: absolute;
+    top: -5px; 
+    left: 0px;
+    height: 140px;
+    width: 140px;
+}
+
+.avatarContainerSmall .avatar1 {
+    position: absolute;
+    top: calc(-6px - var(--frameY)); 
+    left: 0px;
+    height: 140px;
+    width: 140px;
+}
+
+.avatarContainerSmall .avatar2 {
+    position: absolute;
+    top: -4px; 
+    left: calc(0px - var(--frameX));
+    height: 140px;
+    width: 140px;
+}
+
+.avatarContainerSmall .avatar3 {
+    position: absolute;
+    top: -4px; 
+    left: calc(0px - var(--frameX)*2);
+    height: 140px;
+    width: 140px;
+}
+
+.avatarContainerSmall .avatar4 {
+    position: absolute;
+    top: -5px; 
+    left: calc(0px - var(--frameX)*3);
+    height: 140px;
+    width: 140px;
+}
+
+.avatarContainerLarge {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 100%;
+    overflow: hidden;    
+    position: relative;
+    margin-right: 1rem;
+}
+.avatarContainerLarge .avatar {
+    position: absolute;
+    top: -8px;
+    left: 0px;
+    height: 240px;
+    width: 240px;
+}
 main {
     grid-area: projects;
-    background-color: var(--projects-bg-color);
+}
 
+main > h2 {
+    padding-left: 1rem;
 }
 
 main > section {
@@ -124,6 +319,8 @@ main > section > article {
     padding: 1rem;
     max-height: 12rem;
     min-height: 12rem;
+    box-shadow: 0 0 8px 0 var(--shadow-color);
+    border-left: 8px solid var(--card-border-color);
 }
 
 main > section >article > p {
@@ -137,22 +334,72 @@ main > section > article > div {
     right: 5px;
 }
 
-.announcements {
-    grid-area: announcements;
+main > section button {
+    border: none;
+    background-color: transparent;
+    padding: .5rem;
+}
 
+main > section button:hover {
+    background-color: var(--card-border-color);
+    border-radius: 8px;
+}
+
+
+main > section > article img {
+    height: 1rem;
+    width: 1rem;
 
 }
 
+
+
+.announcements {
+    grid-area: announcements;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.announcements > h2 {
+    height: 28px;
+    margin-bottom: 1rem;
+}
+
 .announcements > section {
+    display: grid;
+    flex: 1;
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 0 8px 0 var(--shadow-color);
+    gap: 1rem;
 }
 
 .announcements > section > article {
     font-size: .75rem;
+
+
+}
+
+.announcements > section > article:nth-child(2) {
+    border-top:1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    padding: 1rem 0 1rem 0;
 }
 
 .trending {
     grid-area: trending;
+    margin-top: 1rem;
+}
 
+.trending > section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.trending section > div {
+    margin: .5rem 0 .5rem 0;
 }
 
 .trending > section {
@@ -160,4 +407,7 @@ main > section > article > div {
 }
 
 .trending > section > div {
+    display: flex;
 }
+
+
