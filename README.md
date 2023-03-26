@@ -1,6 +1,6 @@
 <h1>Odin Admin Page</h1>
 <p>
-This is an assignment for the Odin Project<br/>
+This is an assignment for the Odin Project.<br/>
 The primary goal of this project is to demonstrate basic proficiency with Css Grid.
 </p>
 
